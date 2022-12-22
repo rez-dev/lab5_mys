@@ -41,8 +41,8 @@ class Boid {
   // Entradas : Arreglo de aves x Lider
   // Salida: Sin salidas
   
-  void run(ArrayList<Boid> boids, Leader leader, Scarecrow espantador) {
-    flock(boids,leader,espantador);
+  void run(ArrayList<Boid> boids, Leader leader, Scarecrow disruptor) {
+    flock(boids,leader,disruptor);
     update();
     borders();
     render();
@@ -66,7 +66,7 @@ class Boid {
   // Entradas : Arreglo de aves x Lider
   // Salida: Sin salidas
   
-  void flock(ArrayList<Boid> boids, Leader leader, Scarecrow espantador) {
+  void flock(ArrayList<Boid> boids, Leader leader, Scarecrow disruptor) {
     
     //Previamente se mencionó el concepto de fuerza
     //La fuerza se compone de 4 conceptos
@@ -269,13 +269,13 @@ class Boid {
     PVector steer = new PVector(0, 0, 0);
     int count = 0;
     
-    float distance = PVector.dist(position, espantador.position);
+    float distance = PVector.dist(position, disruptor.position);
       
     // Si la distancia es mayor a 0 y menor a la distancia deseada de separación
     
     if ((distance > 0) && (distance < desiredseparation)) {
       // Generamos un vector que indica a donde debe ir el ave
-      PVector diff = PVector.sub(position, espantador.position);
+      PVector diff = PVector.sub(position, disruptor.position);
       diff.normalize();
       diff.div(distance);       
       steer.add(diff);

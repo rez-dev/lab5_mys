@@ -1,5 +1,5 @@
 /**
- * Laboratorio 4 Modelación y Simulación
+ * Laboratorio 5 Modelación y Simulación
  * Autores : Rodrigo Escobar
  *           Nicolas Torreblanca
  * Fecha de Entrega : 04-12-2022
@@ -12,7 +12,7 @@
 
 Flock flock;
 Leader lider;
-Scarecrow espantador;
+Scarecrow disruptor;
 
 // setup
 // Sin entradas y salidas
@@ -29,7 +29,7 @@ void setup() {
   
   // Se inicializa un lider igualmente
   lider =  new Leader();
-  espantador = new Scarecrow();
+  disruptor = new Scarecrow();
 }
 
 
@@ -39,9 +39,9 @@ void setup() {
 // Permite ejecutar el comportamiento de las aves.
 void draw() {
   background(151, 221, 234);
-  flock.run(lider,espantador);
+  flock.run(lider,disruptor);
   lider.run();
-  espantador.run();
+  disruptor.run();
 }
 
 // Funcion mousePressed
